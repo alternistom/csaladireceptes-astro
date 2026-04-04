@@ -143,60 +143,9 @@ function formatTime(minutes: number): string {
       </aside>
 
       <div class="lg:col-span-8">
-        {post.data.instructions && post.data.instructions.length > 0 ? (
-          <div class="tabs-container">
-            <div class="flex gap-8 border-b border-stone-200 mb-10 relative" role="tablist">
-              <button
-                id="tab-btn-story"
-                class="tab-btn pb-4 text-lg font-serif font-medium text-primary border-b-2 border-primary transition-all relative z-10"
-                role="tab"
-                aria-selected="true"
-                aria-controls="tab-story"
-              >
-                The Story
-              </button>
-              <button
-                id="tab-btn-instructions"
-                class="tab-btn pb-4 text-lg font-serif font-medium text-content-muted/60 border-b-2 border-transparent hover:text-content transition-all relative z-10"
-                role="tab"
-                aria-selected="false"
-                aria-controls="tab-instructions"
-              >
-                Instructions
-              </button>
-            </div>
-
-            <div id="tab-story" role="tabpanel" aria-labelledby="tab-btn-story" class="tab-content animate-fade-in">
-              <div class="prose prose-lg prose-stone max-w-none 
-                prose-headings:font-serif prose-headings:text-content prose-headings:font-medium
-                prose-p:text-content-muted prose-p:leading-8
-                prose-a:text-primary prose-a:no-underline prose-a:border-b prose-a:border-primary/30 hover:prose-a:border-primary prose-a:transition-all
-                prose-strong:text-content prose-strong:font-bold
-                prose-li:text-content-muted
-                prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8
-                prose-blockquote:border-l-primary prose-blockquote:bg-surface-2/50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:rounded-r-lg
-                first-letter:float-left first-letter:text-6xl first-letter:pr-4 first-letter:font-serif first-letter:text-primary first-letter:font-bold">
-                <Content />
-              </div>
-            </div>
-
-            <div id="tab-instructions" role="tabpanel" aria-labelledby="tab-btn-instructions" class="tab-content hidden animate-fade-in">
-              <RecipeInstructions 
-                instructions={post.data.instructions} 
-                recipeId={post.slug} 
-              />
-            </div>
-          </div>
-        ) : (
-          <div class="prose prose-lg prose-stone max-w-none 
-            prose-headings:font-serif prose-headings:text-content
-            prose-p:text-content-muted prose-p:leading-8
-            prose-a:text-primary 
-            prose-img:rounded-xl prose-img:shadow-lg
-            first-letter:float-left first-letter:text-6xl first-letter:pr-4 first-letter:font-serif first-letter:text-primary first-letter:font-bold">
-            <Content />
-          </div>
-        )}
+        {post.data.instructions && post.data.instructions.length > 0 && (
+  <RecipeInstructions instructions={post.data.instructions} recipeId={post.slug} />
+)}
 
         {post.data.tags && post.data.tags.length > 0 && (
           <footer class="mt-16 pt-8 border-t border-stone-200">
